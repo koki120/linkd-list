@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "linked_list.h"
+#include <linked_list.h>
 
 int main(int argc, char const *argv[])
 {

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "linked_list.h"
+#include <linked_list.h>
 
 void insert_cell(CELL **p, int d)
 {
