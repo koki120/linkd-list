@@ -7,10 +7,8 @@ int main(int argc, char const *argv[])
     // headは一番目のセルの場所（ポインタ）を格納。
     CELL *head = NULL;
 
-    for (int i = 10; i >= 0; i = i - 2)
-    {
-        insert_cell_top(&head, i);
-    }
+    insert_cell_in_ascending_order(&head, 2);
+    // insert_cell_in_ascending_order(&head, 1);
 
     show_list(head);
 

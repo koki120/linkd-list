@@ -15,10 +15,16 @@ extern void show_list(CELL *head);
 extern int list_length(CELL *head);
 
 // 連結リストにデータを挿入
-extern void insert_cell(CELL **pre_cell, int data);
+extern void insert_cell(CELL **preCell, int data);
 
 // 連結リストの先頭にデータを挿入
 extern void insert_cell_top(CELL **head, int data);
 
+// 連結リストに昇順(小さいもの順)で新しいデータを挿入
+extern void insert_cell_in_ascending_order(CELL **head, int data);
 
-extern void insert_cell_ascending_order(CELL **head, int d);
+// 連結リストのデータを削除
+extern void delete_cell(CELL **preCell);
+
+// 連結リストのデータ探索
+extern CELL *search_cell(CELL *startCell, int data);

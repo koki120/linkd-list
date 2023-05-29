@@ -57,15 +57,15 @@ void insert_cell_in_ascending_order(CELL **head, int insertData)
     }
 
     // pもheadが指しているCELLの場所（ポインタ）を指す。
-    CELL *p = *head;
+    CELL *cell = *head;
     // qはheadが指しているCELLの場所（ポインタ）の次のCELLの場所（ポインタ）を指す。
-    // したがって、head == NULLならエラー（せぐふぉ）が起きる。
-    CELL *q = (*head)->nextDataPointer;
+    // したがって、head == NULLなら(*head)->nextDataPointerでエラー（せぐふぉ）が起きる。
+    CELL *nextCell = (*head)->nextDataPointer;
 
-    while (q->data < insertData && q != NULL)
+    while (insertData < nextCell->data && nextCell != NULL)
     {
-        p = q;
-        q = q->nextDataPointer;
+        cell = nextCell;
+        nextCell = nextCell->nextDataPointer;
     }
 
     // 先頭のデータと比較して、小さいなら先頭挿入
@@ -75,7 +75,7 @@ void insert_cell_in_ascending_order(CELL **head, int insertData)
     }
     else
     {
-        insert_cell(&p, insertData);
+        insert_cell(&cell, insertData);
     }
     return;
 };
