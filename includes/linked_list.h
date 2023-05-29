@@ -19,3 +19,6 @@ extern void insert_cell(CELL **pre_cell, int data);
 
 // 連結リストの先頭にデータを挿入
 extern void insert_cell_top(CELL **head, int data);
+
+
+extern void insert_cell_ascending_order(CELL **head, int d);
