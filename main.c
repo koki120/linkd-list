@@ -7,10 +7,18 @@ int main(int argc, char const *argv[])
     // headは一番目のセルの場所（ポインタ）を格納。
     CELL *head = NULL;
 
-    insert_cell_in_ascending_order(&head, 2);
-    // insert_cell_in_ascending_order(&head, 1);
+    
 
+    int count;
+
+    count += insert_cell_end_or_insert_after_same_data(&head, 100);
+    count += insert_cell_end_or_insert_after_same_data(&head, 132);
+    count += insert_cell_end_or_insert_after_same_data(&head, 100);
+    count += insert_cell_end_or_insert_after_same_data(&head, 1);
+    count += insert_cell_end_or_insert_after_same_data(&head, 5);
     show_list(head);
+
+    printf("count is %d\n", count);
 
     return 0;
 }

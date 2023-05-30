@@ -20,6 +20,9 @@ extern void insert_cell(CELL **preCell, int data);
 // 連結リストの先頭にデータを挿入
 extern void insert_cell_top(CELL **head, int data);
 
+// 連結リストの末尾にデータを挿入または、同じデータがある時はその後ろに挿入
+extern int insert_cell_end_or_insert_after_same_data(CELL **head, int insertData);
+
 // 連結リストに昇順(小さいもの順)で新しいデータを挿入
 extern void insert_cell_in_ascending_order(CELL **head, int data);
 

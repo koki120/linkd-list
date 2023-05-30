@@ -47,7 +47,36 @@ void insert_cell_top(CELL **head, int d)
     *head = new_cell;
 };
 
-// 昇順(小さいもの順)で新しいcellを挿入
+int insert_cell_end_or_insert_after_same_data(CELL **head, int insertData)
+{
+    int count = 0;
+
+    if (*head == NULL)
+    {
+        insert_cell_top(head, insertData);
+        return count;
+    }
+
+    CELL *cell = *head;
+    CELL *nextCell = (*head)->nextDataPointer;
+
+    while (nextCell != NULL)
+    {
+        count++;
+        if (cell->data == insertData)
+        {
+            break;
+        }
+        cell = nextCell;
+        nextCell = nextCell->nextDataPointer;
+    }
+
+    insert_cell(&cell, insertData);
+
+    return count;
+};
+
+// 昇順(小さいもの順)で新しいcellを挿入,同じ値なら前に挿入
 void insert_cell_in_ascending_order(CELL **head, int insertData)
 {
     if (*head == NULL)
@@ -62,7 +91,8 @@ void insert_cell_in_ascending_order(CELL **head, int insertData)
     // したがって、head == NULLなら(*head)->nextDataPointerでエラー（せぐふぉ）が起きる。
     CELL *nextCell = (*head)->nextDataPointer;
 
-    while (insertData < nextCell->data && nextCell != NULL)
+    // nextCell != NULLを先にしないと、エラー（せぐふぉ）が起きる。
+    while (nextCell != NULL && insertData > nextCell->data)
     {
         cell = nextCell;
         nextCell = nextCell->nextDataPointer;
